@@ -14,12 +14,9 @@ jobs:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v27
     - run: nix-shell -p git
-    - run: nix-env -i git && \
-            git init && \
-            git remote add origin https://github.com/NixOS/nixpkgs.git && \
-            git fetch --depth 1 origin && \
-            git checkout FETCH_HEAD && \
-            cd ../
-
-    
+    - name: Checkout nix packages
+      uses: actions/checkout@v4
+      with:
+        repository: NixOS/nixpkgs
+        path: nixpkgs 
     - run: nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./custom-iso.nix -o result"
