@@ -1,13 +1,14 @@
-name: Example workflow using use-nix-action
+name: Build my custom Framework laptop iso image 
 
-on: [push]
-
-name: "Test"
 on:
+  workflow_dispatch:
   pull_request:
   push:
+    branches:
+      - main
+
 jobs:
-  tests:
+  build:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@v4
