@@ -15,8 +15,6 @@ jobs:
     - uses: cachix/install-nix-action@v27
     - run: nix-shell -p git
     - run: nix-env -i git && \
-            mkdir -p /build/nixpkgs && \
-            cd nixpkgs && \
             git init && \
             git remote add origin https://github.com/NixOS/nixpkgs.git && \
             git fetch --depth 1 origin && \
