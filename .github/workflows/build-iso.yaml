@@ -18,4 +18,5 @@ jobs:
       with:
         repository: NixOS/nixpkgs
         path: nixpkgs 
+    - run: ls
     - run: nix-shell -p nixos-generators --run "nixos-generate --format iso --configuration ./custom-iso.nix -o result"
