@@ -14,4 +14,4 @@ jobs:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v27
     - run: mkdir ./build
-    - run: nix-build ./build -A config.system.build.isoImage -I nixos-config=custom-iso.nix
+    - run: nix-build '<./build>' -A config.system.build.isoImage -I nixos-config=custom-iso.nix
