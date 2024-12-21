@@ -13,7 +13,6 @@ jobs:
     steps:
     - uses: actions/checkout@v4
     - uses: cachix/install-nix-action@v27
-    - run: nix-shell -p git
     - name: Checkout nix packages
       uses: actions/checkout@v4
       with:
